@@ -4,6 +4,8 @@
 int main() {
     XYZPerson *parent = [XYZPerson person];
     [parent sayHello];
+    NSLog(@"parent isFinished message syntax: %d", [parent isFinished]);
+    NSLog(@"parent isFinished dot syntax: %d", parent.isFinished);
 
     ShoutingXYZPerson *person = [[ShoutingXYZPerson alloc] init];
     [person sayHello];
