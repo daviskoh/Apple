@@ -11,16 +11,25 @@
     return [[self alloc] init];
 }
 
-- (id)init {
+// init method w/ most args is "designated initializer"
+- (id)initWithFirstName:(NSString *)aFirstName
+	       lastName:(NSString *)aLastName
+	    dateOfBirth:(NSDate *)aDOB {
     self = [super init];
 
-    // superclass' init may fail & return nil
-    // should always check for it before executing below initialization
     if (self) {
-        NSLog(@"XYZPerson init called");
+        _firstName = aFirstName;
+	_lastName = aLastName;
     }
 
     return self;
+}
+
+// should override init method to call designated initalizer
+// w/ proper args
+// NOTE: when overriding superclass' init, should call "designated initializer"
+- (id)init {
+    return [self initWithFirstName:@"John" lastName:@"Doe" dateOfBirth:nil];
 }
 
 - (void)saySomething:(NSString *)something {
