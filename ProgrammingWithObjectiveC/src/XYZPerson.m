@@ -19,7 +19,7 @@
 
     if (self) {
         _firstName = aFirstName;
-	_lastName = aLastName;
+	    _lastName = aLastName;
     }
 
     return self;
@@ -37,7 +37,14 @@
 }
 
 - (void)sayHello {
-    [self saySomething: @"Hello, world!"];
+    [self saySomething: [
+            NSString stringWithFormat:@"Hello, world! My name is %@", [self fullName]
+        ]
+    ];
+}
+
+- (void)dealloc {
+    NSLog(@"XYZPerson is being deallocated");
 }
 
 // custom accessor method
