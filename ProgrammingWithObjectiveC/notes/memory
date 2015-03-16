@@ -1,0 +1,3 @@
+strong reference cycle - objects kept in memory due to strong references to each other
+- can be solved by having one of the objects hold a weak reference
+
