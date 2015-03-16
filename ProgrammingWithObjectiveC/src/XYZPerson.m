@@ -40,6 +40,7 @@
     [self saySomething: @"Hello, world!"];
 }
 
+// custom accessor method
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", _firstName, _lastName];
 }
