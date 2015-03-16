@@ -10,6 +10,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+// used to keep track of window where ALL content is drawn
 @property (strong, nonatomic) UIWindow *window;
 
 

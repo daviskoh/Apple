@@ -18,7 +18,7 @@ int main(int argc, char * argv[]) {
        * - manages app event loop & other behaviors
        * 
        * 2) instance of AppDelegate (app delegate)
-       * - creates window where content is drawn
+       * - creates window (as property) where content is drawn
        * - provides place to resp to state transitions
        */
       return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));

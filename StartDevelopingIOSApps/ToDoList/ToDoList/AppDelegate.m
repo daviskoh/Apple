@@ -14,6 +14,8 @@
 
 @implementation AppDelegate
 
+// below methods calls during appropriate runtime events
+// handled by application object
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
