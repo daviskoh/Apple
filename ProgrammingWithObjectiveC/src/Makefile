@@ -2,10 +2,11 @@ CC=gcc
 
 FRAMEWORKS:= -framework Foundation
 LIBRARIES:= -lobjc
+ARC:= -fobjc-arc
 
 SOURCE=main.m
 
-LDFLAGS=$(LIBRARIES) $(FRAMEWORKS)
+LDFLAGS=$(LIBRARIES) $(FRAMEWORKS) $(ARC)
 OUT=main
 
 build: clean

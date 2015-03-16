@@ -2,6 +2,9 @@
 
 @interface XYZPerson: NSObject
 
+// properties use "strong" references for synthesized instance vars by default
+// need to specify "weak" if desired
+
 // readwrite property is backed by instance variable synthesized by default
 // instance var - var that exists & holds value for life of object
 // - memory used for instance var allocated when obj created 
