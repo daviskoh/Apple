@@ -11,6 +11,18 @@
     return [[self alloc] init];
 }
 
+- (id)init {
+    self = [super init];
+
+    // superclass' init may fail & return nil
+    // should always check for it before executing below initialization
+    if (self) {
+        NSLog(@"XYZPerson init called");
+    }
+
+    return self;
+}
+
 - (void)saySomething:(NSString *)something {
     NSLog(@"%@", something);
 }

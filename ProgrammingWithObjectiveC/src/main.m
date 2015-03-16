@@ -15,6 +15,8 @@ int main() {
     ShoutingXYZPerson *person = [[ShoutingXYZPerson alloc] init];
     [person sayHello];
 
+    // notice init order in logs
+    // - should see NSLog of XYZPerson then ShoutingXYZPerson
     ShoutingXYZPerson *child = [ShoutingXYZPerson person];
     [child sayHello];
 
