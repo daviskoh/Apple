@@ -7,6 +7,11 @@ int main() {
     NSLog(@"parent isFinished message syntax: %d", [parent isFinished]);
     NSLog(@"parent isFinished dot syntax: %d", parent.isFinished);
 
+    // NOTE: this type of logic should be within init method
+    parent.firstName = @"bob";
+    parent.lastName = @"broman";
+    NSLog(@"%@", parent.fullName);
+
     ShoutingXYZPerson *person = [[ShoutingXYZPerson alloc] init];
     [person sayHello];
 
