@@ -33,6 +33,11 @@
 // can specify custom getter as is customary for boolean properties
 @property (readonly, getter=isFinished) BOOL finished;
 
+// NOTE: if (weak) is not provided,
+// spouse will never release / deallocate
+// TRY: removing weak & watch for deallocate NSLOG in make
+@property (weak) XYZPerson *spouse;
+
 + (id)person;
 
 - (void)saySomething:(NSString *)something;

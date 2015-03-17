@@ -44,7 +44,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"XYZPerson is being deallocated");
+    NSLog(@"XYZPerson %@ is being deallocated", self.firstName);
 }
 
 // custom accessor method

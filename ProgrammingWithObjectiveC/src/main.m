@@ -60,5 +60,20 @@ int main() {
         [nameString appendString:@"ny is APPENDED"];
         NSLog(@"%@", badge.firstName);
         NSLog(@"%@", badge.lastName);
+
+        XYZPerson *husband = [[XYZPerson alloc] initWithFirstName:@"Jack"
+                                                      lastName:@"Meow"
+                                                   dateOfBirth:nil];
+        XYZPerson *wife = [[XYZPerson alloc] initWithFirstName:@"Jackie"
+                                                      lastName:@"Meow"
+                                                   dateOfBirth:nil];
+
+        husband.spouse = wife;
+        wife.spouse = husband;
+
+        NSLog(@"husband's spouse: %@", husband.spouse.firstName);
+        NSLog(@"wife's spouse: %@", wife.spouse.firstName);
+
+        NSLog(@"keep going");
     }
 }
