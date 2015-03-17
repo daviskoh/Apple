@@ -73,7 +73,5 @@ int main() {
 
         NSLog(@"husband's spouse: %@", husband.spouse.firstName);
         NSLog(@"wife's spouse: %@", wife.spouse.firstName);
-
-        NSLog(@"keep going");
     }
 }
