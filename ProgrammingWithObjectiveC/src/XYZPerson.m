@@ -1,5 +1,26 @@
 #import "XYZPerson.h"
 
+// unlike categories, class extensions done at "compile time"
+
+// class extensions are provide private methods & properties for use
+// within "implementation" of class itself
+// ex: interface declares property as "readonly"
+// - extension declares as "readwrite" in order to change property value directly
+@interface XYZPerson () {
+    // private instance vars added using class extensions
+    id _someCustomInstanceVariable;
+}
+
+// compiler automatically synthesizes relevant accessor methods & instance var
+@property NSObject *extraProperty;
+
+// redefine uniqueIdentifier as readwrite
+// so that it can be set directly within implementation using a setter
+@property (readwrite) NSString *uniqueIdentifier;
+
+@end
+
+
 @implementation XYZPerson
 
 // can synthesize custom names for instance var ex:

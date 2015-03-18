@@ -38,6 +38,12 @@
 // TRY: removing weak & watch for deallocate NSLOG in make
 @property (weak) XYZPerson *spouse;
 
+// NOTE: this prop will be redefined as readwrite in class extension
+// - uniqueIdentifier will not be able to be set directly by another object
+@property (readonly) NSString *uniqueIdentifier;
+// method that requests an identifier be assigned
+- (void)assignUniqueIdentifier;
+
 + (id)person;
 
 - (void)saySomething:(NSString *)something;
