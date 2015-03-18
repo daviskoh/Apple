@@ -2,8 +2,9 @@
 
 // unlike categories, class extensions done at "compile time"
 
-// class extensions are provide private methods & properties for use
+// class extensions provide private methods & properties for use
 // within "implementation" of class itself
+// - thus, extensions need access to the implementation "source file"
 // ex: interface declares property as "readonly"
 // - extension declares as "readwrite" in order to change property value directly
 @interface XYZPerson () {
