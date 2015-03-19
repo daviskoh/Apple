@@ -21,7 +21,6 @@
 
 @end
 
-
 @implementation XYZPerson
 
 // can synthesize custom names for instance var ex:
@@ -72,6 +71,11 @@
 // custom accessor method
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", _firstName, _lastName];
+}
+
+- (void)assignUniqueIdentifier {
+    // should change implementation here
+    _uniqueIdentifier = @"123123";
 }
 
 @end
