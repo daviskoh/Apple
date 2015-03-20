@@ -10,4 +10,6 @@
 
 - (NSString *)lastNameFirstNameString;
 
+- (NSString *)reversedName;
+
 @end

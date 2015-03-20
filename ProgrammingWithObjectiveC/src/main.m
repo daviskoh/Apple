@@ -1,6 +1,7 @@
 #import "XYZPerson.m"
 #import "ShoutingXYZPerson.m"
 #import "XYZBadgeView.m"
+#import "NSString+Reverse.m"
 
 // must import category into every file that uses it
 #import "XYZPerson+XYZPersonNameDisplayAdditions.m"
@@ -78,5 +79,7 @@ int main() {
         NSLog(@"wife's spouse: %@", wife.spouse.firstName);
 
         NSLog(@"last name, first name: %@", [husband lastNameFirstNameString]);
+
+        NSLog(@"%@", [husband reversedName]);
     }
 }
