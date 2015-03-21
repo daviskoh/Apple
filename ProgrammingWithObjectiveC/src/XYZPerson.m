@@ -19,6 +19,9 @@
 // so that it can be set directly within implementation using a setter
 @property (readwrite) NSString *uniqueIdentifier;
 
+@property (readwrite) int heightInInches;
+@property (readwrite) int weightInPounds;
+
 @end
 
 @implementation XYZPerson
@@ -76,6 +79,14 @@
 - (void)assignUniqueIdentifier {
     // should change implementation here
     _uniqueIdentifier = @"123123";
+}
+
+- (void)measureHeight {
+    _heightInInches = 67;
+}
+
+- (void)measureWeight {
+    _weightInPounds = 156;
 }
 
 @end

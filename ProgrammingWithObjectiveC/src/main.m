@@ -80,6 +80,14 @@ int main() {
 
         NSLog(@"last name, first name: %@", [husband lastNameFirstNameString]);
 
-        NSLog(@"%@", [husband reversedName]);
+        NSLog(@"husband's reversed name: %@", [husband reversedName]);
+
+        printf("husband's height: %i & weight: %i \n", husband.heightInInches, husband.weightInPounds);
+
+        [husband measureHeight];
+        [husband measureWeight];
+
+        printf("husband's height: %i & weight: %i \n", husband.heightInInches, husband.weightInPounds);
+        
     }
 }

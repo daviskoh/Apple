@@ -41,6 +41,10 @@
 // NOTE: this prop will be redefined as readwrite in class extension
 // - uniqueIdentifier will not be able to be set directly by another object
 @property (readonly) NSString *uniqueIdentifier;
+
+@property (readonly) int heightInInches;
+@property (readonly) int weightInPounds;
+
 // method that requests an identifier be assigned
 - (void)assignUniqueIdentifier;
 
@@ -49,5 +53,8 @@
 - (void)saySomething:(NSString *)something;
 
 - (void)sayHello;
+
+- (void)measureHeight;
+- (void)measureWeight;
 
 @end
