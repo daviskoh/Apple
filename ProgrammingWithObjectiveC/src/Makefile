@@ -19,3 +19,5 @@ notes:
 
 clean:
 	rm -f $(OUT)
+
+.PHONY: notes
