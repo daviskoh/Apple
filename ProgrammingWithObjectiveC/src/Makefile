@@ -9,10 +9,13 @@ SOURCE=main.m
 LDFLAGS=$(LIBRARIES) $(FRAMEWORKS) $(ARC)
 OUT=main
 
-build: clean
+build: clean notes
 	
 	$(CC) $(LDFLAGS) $(SOURCE) -o $(OUT)
 	./$(OUT)
+
+notes:
+	notey 
 
 clean:
 	rm -f $(OUT)
