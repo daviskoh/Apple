@@ -2,6 +2,7 @@
 #import "ShoutingXYZPerson.m"
 #import "XYZBadgeView.m"
 #import "NSString+Reverse.m"
+#import "XYZPieChartView.m"
 
 // must import category into every file that uses it
 #import "XYZPerson+XYZPersonNameDisplayAdditions.m"
