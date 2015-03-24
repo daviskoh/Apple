@@ -1,3 +1,4 @@
 protocols are used to
 - indiciate non-hierachical similarities bet classes
 - used for delegate objects that communicate with a class (often set as a property)
+- used when class of object is not known or needs to stay hidden
