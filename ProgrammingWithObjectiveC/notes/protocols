@@ -1,0 +1,3 @@
+protocols are used to
+- indiciate non-hierachical similarities bet classes
+- used for delegate objects that communicate with a class (often set as a property)
