@@ -37,8 +37,8 @@
 
 // init method w/ most args is "designated initializer"
 - (id)initWithFirstName:(NSString *)aFirstName
-	       lastName:(NSString *)aLastName
-	    dateOfBirth:(NSDate *)aDOB {
+	           lastName:(NSString *)aLastName
+	        dateOfBirth:(NSDate *)aDOB {
     self = [super init];
 
     if (self) {
