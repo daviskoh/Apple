@@ -93,6 +93,18 @@ int main() {
 
         NSInteger meowCount = 1;
         NSLog(@"meowCount: %ld", meowCount);
+
+        // NSStrings are immutable
+        NSString *immutableString = @"immutable";
+        [immutableString stringByAppendingString:@" string"];
+        NSLog(@"immutable: %@", immutableString);
+
+        NSMutableString *mutableString = [
+            NSMutableString stringWithFormat:@"mutable"
+        ];
+        [mutableString stringByAppendingString:@" string"];
+        NSLog(@"mutable: %@", mutableString);
+
     }
 }
 
