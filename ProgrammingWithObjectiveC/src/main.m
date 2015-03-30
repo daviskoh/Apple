@@ -90,6 +90,9 @@ int main() {
         [husband measureWeight];
 
         printf("husband's height: %i & weight: %i \n", husband.heightInInches, husband.weightInPounds);
-        
+
+        NSInteger meowCount = 1;
+        NSLog(@"meowCount: %ld", meowCount);
     }
 }
+
