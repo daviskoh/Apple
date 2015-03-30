@@ -105,6 +105,17 @@ int main() {
         [mutableString stringByAppendingString:@" string"];
         NSLog(@"mutable: %@", mutableString);
 
+        // NSNumber hold C scalar number types
+        // scalar values are requested using accessors
+        NSNumber *magicNumber = @42;
+        int theMagic = [magicNumber intValue];
+        NSNumber *simpleFloat = @4.3f;
+        float theFloatery = [simpleFloat floatValue];
+        // NOTE: the SINGLE quotes for char types
+        NSNumber *someChar = @'T';
+        char thatChar = [someChar charValue];
+        printf("int: %i, float: %f, char: %c \n", theMagic, theFloatery, thatChar);
+
     }
 }
 
