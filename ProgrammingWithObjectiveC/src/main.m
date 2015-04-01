@@ -116,6 +116,16 @@ int main() {
         char thatChar = [someChar charValue];
         printf("int: %i, float: %f, char: %c \n", theMagic, theFloatery, thatChar);
 
+        // variadic methods are "nil-terminated" which mean last arg must be nil
+        NSArray *properNilTerminatedArray = [NSArray arrayWithObjects: @"string", @1, nil];
+        NSLog(@"properNilTerminatedArray: %@", properNilTerminatedArray);
+        NSArray *improperNilTerminatedArray = [NSArray arrayWithObjects: @"string", nil, @1, nil];
+        NSLog(@"improperNilTermiantedArray: %@", improperNilTerminatedArray);
+        // NOTE: cannot have nil value when using literal syntax
+        // - use NSNull singleton class to rep nil
+        NSArray *literalArray = @[@"string", @1];
+        NSLog(@"literalArray: %@", literalArray);
+
     }
 }
 
