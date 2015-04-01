@@ -138,6 +138,14 @@ int main() {
         NSLog(@"unsorted array: %@", unSortedArray);
         NSLog(@"sorted array: %@", sortedArray);
 
+        // for mutability, use NSMutableArray
+        NSMutableArray *mutableArray = [NSMutableArray array];
+        [mutableArray addObject:@"meow"];
+        [mutableArray addObject:@"dude"];
+        [mutableArray addObject:@"bro"];
+        [mutableArray replaceObjectAtIndex:0 withObject:@"cat"];
+        NSLog(@"mutable array: %@", mutableArray);
+
     }
 }
 
