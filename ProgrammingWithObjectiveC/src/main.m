@@ -126,6 +126,18 @@ int main() {
         NSArray *literalArray = @[@"string", @1];
         NSLog(@"literalArray: %@", literalArray);
 
+        // query array
+        if ([literalArray count] > 0) {
+            // below is shorthand for [literalArray objectAtIndex: 0]
+            NSLog(@"1st item of literalArray: %@", literalArray[0]);
+        }
+
+        // sort arrays using selectors
+        NSArray *unSortedArray = @[@"z", @"e", @"f", @"a"];
+        NSArray *sortedArray = [unSortedArray sortedArrayUsingSelector:@selector(compare:)];
+        NSLog(@"unsorted array: %@", unSortedArray);
+        NSLog(@"sorted array: %@", sortedArray);
+
     }
 }
 
