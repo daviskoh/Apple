@@ -168,6 +168,7 @@ int main() {
         // - use NSNull class to rep nil
         // - because NSNull is a singleton, its null method will always return same isntance
         // - can be used to check conditionals
+        // NOTE: NSFastEnumeration below
         NSArray *arrayWithNull = @[@"string", @11, [NSNull null]];
         for (id obj in arrayWithNull) {
             if (obj == [NSNull null]) {
@@ -175,7 +176,7 @@ int main() {
             }
         }
 
-
+        
     }
 }
 
