@@ -152,7 +152,17 @@ int main() {
         NSSet *simpleSet = [NSSet setWithObjects:@"Hello, World!", @42, @42, nil];
         NSLog(@"a set: %@, ", simpleSet);
 
+        // NSDictionary
+        NSDictionary *dict = @{
+            @"anObject" : @"meow",
+            @"aNumber" : @32
+        };
+        NSLog(@"anObject in dict: %@", dict[@"anObject"]);
 
+        // NSMutableDictionary subclass
+        NSMutableDictionary *mutableDict = [dict mutableCopy];
+        [mutableDict setObject:@"anObject has been REPLACED" forKey:@"anObject"];
+        NSLog(@"mutableDict: %@", mutableDict);
     }
 }
 
