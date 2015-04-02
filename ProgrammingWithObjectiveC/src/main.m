@@ -163,6 +163,19 @@ int main() {
         NSMutableDictionary *mutableDict = [dict mutableCopy];
         [mutableDict setObject:@"anObject has been REPLACED" forKey:@"anObject"];
         NSLog(@"mutableDict: %@", mutableDict);
+
+        // NOTE: not possible to add nil to collection types (because nil means "no object"
+        // - use NSNull class to rep nil
+        // - because NSNull is a singleton, its null method will always return same isntance
+        // - can be used to check conditionals
+        NSArray *arrayWithNull = @[@"string", @11, [NSNull null]];
+        for (id obj in arrayWithNull) {
+            if (obj == [NSNull null]) {
+                NSLog(@"Found a null object");
+            }
+        }
+
+
     }
 }
 
