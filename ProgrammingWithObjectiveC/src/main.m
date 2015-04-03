@@ -4,6 +4,7 @@
 #import "NSString+Reverse.m"
 #import "XYZPieChartView.m"
 #import "XYZCalculator.m"
+#import "XYZSimpleBlock.m"
 
 // must import category into every file that uses it
 #import "XYZPerson+XYZPersonNameDisplayAdditions.m"
@@ -205,6 +206,16 @@ int main() {
         NSLog(@"modifying anInt value to: %i", anInt);
         NSLog(@"modyfing anotherInt value to: %i", anotherInt);
         useAnInt();
+
+        // uses block typedef from XYZSimpleBlock.m
+        XYZSimpleBlock anotherBlock = ^{
+            NSLog(@"anotherBlock");
+        };
+        anotherBlock();
+        XYZSimpleBlock andAnotherBlock = ^{
+            NSLog(@"andAnotherBlock");
+        };
+        andAnotherBlock();
     }
 }
 
