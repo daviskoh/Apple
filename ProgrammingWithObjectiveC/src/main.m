@@ -5,6 +5,7 @@
 #import "XYZPieChartView.m"
 #import "XYZCalculator.m"
 #import "XYZSimpleBlock.m"
+#import "XYZObject.m"
 
 // must import category into every file that uses it
 #import "XYZPerson+XYZPersonNameDisplayAdditions.m"
@@ -216,6 +217,11 @@ int main() {
             NSLog(@"andAnotherBlock");
         };
         andAnotherBlock();
+
+        // blocks as properties of objects
+        NSLog(@"myObj here below has a block as a property");
+        XYZObject *myObj = [[XYZObject alloc] init];
+
     }
 }
 
