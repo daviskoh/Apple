@@ -176,7 +176,20 @@ int main() {
             }
         }
 
-        
+        // Blocks
+        // NOTE: attempting to invoke a nil value pointer to block will throw
+        void (^simpleBlock)(void) = ^{
+            NSLog(@"This is a block");
+        };
+        simpleBlock();
+
+        // blocks w/ args
+        // NOTE: return type can be implicit by omitting return type for value
+        double (^multiplyTwoValues)(double, double) = ^ double (double firstValue, double secondValue) {
+            return firstValue * secondValue;
+        };
+        NSLog(@"multiplyTwoValues %f", multiplyTwoValues(2, 3));
+
     }
 }
 
