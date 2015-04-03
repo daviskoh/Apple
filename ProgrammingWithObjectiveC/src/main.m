@@ -190,6 +190,21 @@ int main() {
         };
         NSLog(@"multiplyTwoValues %f", multiplyTwoValues(2, 3));
 
+        // Blocks have access to outside scope like JS closures
+        // - outside values are captured
+        // NOTE: thus blocks cannot change outside value as it's captured as a const
+        // - use __block to designate that a var lives in shared storage bet lexical scope & scope of blocks declarated within
+        int anInt = 32;
+        __block anotherInt = 32;
+        void (^useAnInt)(void) = ^{
+            NSLog(@"useAnInt from already captured outside scope: %i", anInt);
+            NSLog(@"anotherInt from capture outside scope: %i", anotherInt);
+        };
+        anInt = 88;
+        anotherInt = 99;
+        NSLog(@"modifying anInt value to: %i", anInt);
+        NSLog(@"modyfing anotherInt value to: %i", anotherInt);
+        useAnInt();
     }
 }
 
