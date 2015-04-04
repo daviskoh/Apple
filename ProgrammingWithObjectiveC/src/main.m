@@ -197,7 +197,7 @@ int main() {
         // NOTE: thus blocks cannot change outside value as it's captured as a const
         // - use __block to designate that a var lives in shared storage bet lexical scope & scope of blocks declarated within
         int anInt = 32;
-        __block anotherInt = 32;
+        __block int anotherInt = 32;
         void (^useAnInt)(void) = ^{
             NSLog(@"useAnInt from already captured outside scope: %i", anInt);
             NSLog(@"anotherInt from capture outside scope: %i", anotherInt);
