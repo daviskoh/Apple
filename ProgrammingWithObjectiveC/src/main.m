@@ -222,6 +222,17 @@ int main() {
         NSLog(@"myObj here below has a block as a property");
         XYZObject *myObj = [[XYZObject alloc] init];
 
+
+
+
+
+
+
+
+
+
+
+        NSLog(@"*************************************");
     }
 }
 
