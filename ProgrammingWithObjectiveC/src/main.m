@@ -239,7 +239,30 @@ int main() {
             NSLog(@"concurrently enumerate: Object at index %lu is %@", i, obj);
         }];
 
+        // Concurrency w/ Blocks
+        // - Operation Queues used for task scheduling
+        // - can configure dependencies bet operations like waiting for one op to fin
+        NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+            NSLog(@"NSBlockOperation");
+        }];
+        // schedule task on main queue
+        NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+        [mainQueue addOperation:op];
+        // NOTE: below will cause executable to hang
+        // schedule task on background queue
+        // NSOperationQueue *backgroundQueue = [[NSOperationQueue alloc] init];
+        // [backgroundQueue addOperation:op];
 
+        // Grand Central Dispatch (GCD)
+        // - schedule arbitrary block of execution
+        // get ref to existing queue
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        // to dispatch use dispatch_async() or dispatch_sync()
+        dispatch_async(queue, ^{
+            NSLog(@"Block for asynchronous execution");
+        });
+
+        NSLog(@"I should occur before the 'Block for asynchronous execution'");
 
 
 
