@@ -13,4 +13,13 @@
     return self;
 }
 
+- (void)configureBlock {
+    // explicitly use weak ref to avoid strong ref cycle (memory leak)
+    XYZObject * __weak weakSelf = self;
+
+    self.blockProperty = ^{
+        NSLog(@"%@", weakSelf);
+    };
+}
+
 @end
