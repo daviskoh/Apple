@@ -222,8 +222,22 @@ int main() {
         NSLog(@"myObj here below has a block as a property");
         XYZObject *myObj = [[XYZObject alloc] init];
 
+        // blocks to make enumeration easier
+        NSArray *arrForEnum = @[@1, @2, @3];
+        [arrForEnum enumerateObjectsUsingBlock:^ (id obj, NSUInteger i, BOOL *stop) {
+            if ([obj intValue] == 2) {
+                // use pointer to stop to terminate loop
+                *stop = YES;
+            }
 
+            NSLog(@"Object at index %lu is %@", i, obj);
+        }];
 
+        // same enumeration using concurrency option
+        [arrForEnum enumerateObjectsWithOptions:NSEnumerationConcurrent
+                                     usingBlock:^ (id obj, NSUInteger i, BOOL *stop) {
+            NSLog(@"concurrently enumerate: Object at index %lu is %@", i, obj);
+        }];
 
 
 
