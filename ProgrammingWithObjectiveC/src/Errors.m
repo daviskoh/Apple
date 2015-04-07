@@ -53,3 +53,18 @@ NSError *error = [NSError errorWithDomain:domain
 }
 
 
+// Exceptions are used for Programmer Errors
+// - handled similar to other langs
+@try {
+    // might throw
+}
+@catch (NSException *exception) {
+    // handle
+}
+@finally {
+    // cleanup
+}
+// if exception is thrown and not caught:
+// - default uncaught exception handler logs msg to console
+// - app is terminated
+
