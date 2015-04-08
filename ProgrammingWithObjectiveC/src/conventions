@@ -1,0 +1,12 @@
+*************** Conventions *****************
+
+Prefixes:
+
+Class Should Use 3 Letter Prefixes to Avoid Name Clash
+- 2 letter prefixes reserved for Apple
+
+Add prefixes to category methods
+
+Camel Cases Prefered
+
+
