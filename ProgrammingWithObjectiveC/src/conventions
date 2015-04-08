@@ -10,3 +10,10 @@ Add prefixes to category methods
 Camel Cases Prefered
 
 
+Getters & Setters:
+- if using getters, they should be named same as the property
+- exception for ones that return booleans: these should prefix w/ "is"
+ex: isPaused for property paused
+- setters should use prefix "set"
+ex: setFirstName for firstName
+
