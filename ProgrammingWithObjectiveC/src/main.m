@@ -1,7 +1,7 @@
 #import "XYZPerson.m"
 #import "ShoutingXYZPerson.m"
 #import "XYZBadgeView.m"
-#import "NSString+Reverse.m"
+#import "NSString+KOHReverse.m"
 #import "XYZPieChartView.m"
 #import "XYZCalculator.m"
 #import "XYZSimpleBlock.m"

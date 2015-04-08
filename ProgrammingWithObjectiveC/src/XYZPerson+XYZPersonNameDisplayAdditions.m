@@ -1,5 +1,5 @@
 #import "XYZPerson+XYZPersonNameDisplayAdditions.h"
-#import "NSString+Reverse.h"
+#import "NSString+KOHReverse.h"
 
 @implementation XYZPerson (XYZPersonNameDisplayAdditions)
 
@@ -9,7 +9,7 @@
 
 - (NSString *)reversedName {
     NSString *fullName = [NSString stringWithFormat: @"%@ %@", self.firstName, self.lastName];
-    return [fullName reverse];
+    return [fullName koh_reverse];
 }
 
 @end

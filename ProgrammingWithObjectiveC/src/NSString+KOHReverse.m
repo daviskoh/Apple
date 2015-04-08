@@ -1,7 +1,7 @@
-#import "NSString+Reverse.h"
+#import "NSString+KOHReverse.h"
 
-@implementation NSString (Reverse)
-    - (id)reverse {
+@implementation NSString (KOHReverse)
+    - (id)koh_reverse {
         if (self.length == 0) {
             return @"";
         }
@@ -10,7 +10,7 @@
         NSRange subStringRange = NSMakeRange(1, self.length - 1);
 
         return [
-            [[self substringWithRange: subStringRange] reverse]
+            [[self substringWithRange: subStringRange] koh_reverse]
             stringByAppendingString: firstChar
         ];
     }
