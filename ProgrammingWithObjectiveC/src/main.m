@@ -99,13 +99,13 @@ int main() {
         // NSStrings are immutable
         NSString *immutableString = @"immutable";
         [immutableString stringByAppendingString:@" string"];
-        NSLog(@"immutable: %@", immutableString);
+        NSLog(@"immutable NSString: %@", immutableString);
 
         NSMutableString *mutableString = [
             NSMutableString stringWithFormat:@"mutable"
         ];
-        [mutableString stringByAppendingString:@" string"];
-        NSLog(@"mutable: %@", mutableString);
+        [mutableString appendString:@" string"];
+        NSLog(@"mutable NSMutableString: %@", mutableString);
 
         // NSNumber hold C scalar number types
         // scalar values are requested using accessors
