@@ -149,7 +149,7 @@ int main() {
         NSLog(@"mutable array: %@", mutableArray);
 
         // NSSets are unordered group of distinct objects
-        // NOTE: NSSets use hashmaps so lookups are FASTER than NSArrays that have to iteration to find values
+        // NOTE: NSSets use hashmaps so lookups are FASTER than NSArrays that have to iterate to find values
         // NSSets maintain only 1 reference to individual object
         NSSet *simpleSet = [NSSet setWithObjects:@"Hello, World!", @42, @42, nil];
         NSLog(@"a set: %@, ", simpleSet);
