@@ -7,8 +7,11 @@
 //
 
 #import "ToDoListTableViewController.h"
+#import "ToDoItem.h"
 
 @interface ToDoListTableViewController ()
+
+@property NSMutableArray *toDoItems;
 
 @end
 
@@ -22,11 +25,23 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    _toDoItems = [[NSMutableArray alloc] init];
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadInitialData {
+    ToDoItem *item1 = [[ToDoItem alloc] initWithItemName: @"Buy milk"];
+    [_toDoItems addObject: item1];
+    ToDoItem *item2 = [[ToDoItem alloc] initWithItemName: @"Buy eggs"];
+    [_toDoItems addObject: item2];
+    ToDoItem *item3 = [[ToDoItem alloc] initWithItemName: @"Read a book (haha)"];
+    [_toDoItems addObject: item3];
 }
 
 /**
