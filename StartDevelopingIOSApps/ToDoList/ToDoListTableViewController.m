@@ -83,6 +83,21 @@
     return cell;
 }
 
+#pragma mark - Table View Delegate
 
+- (void)tableView:(UITableView *)tableView didSElectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // NOTE: cell is selected by default
+    // deselect cell immediately after selection
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    // query ToDoItem via index
+    ToDoItem *tappedItem = [_toDoItems objectAtIndex:indexPath.row];
+    
+    // toggle completion state
+    tappedItem.completed = !tappedItem.completed;
+    
+    // reload associated table view data
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
 
 @end
