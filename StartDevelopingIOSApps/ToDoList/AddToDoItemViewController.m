@@ -10,6 +10,10 @@
 
 @interface AddToDoItemViewController ()
 
+@property (strong, nonatomic) IBOutlet UITextField *textField;
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+
 @end
 
 @implementation AddToDoItemViewController
@@ -24,14 +28,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if (sender != self.saveButton) return;
+    
+    if (_textField.text.length > 0) {
+        _toDoItem = [[ToDoItem alloc] init];
+        _toDoItem.itemName = _textField.text;
+        _toDoItem.completed = NO;
+    }
 }
-*/
 
 @end

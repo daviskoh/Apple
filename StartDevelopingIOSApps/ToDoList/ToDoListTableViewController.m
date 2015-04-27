@@ -8,6 +8,7 @@
 
 #import "ToDoListTableViewController.h"
 #import "ToDoItem.h"
+#import "AddToDoItemViewController.h"
 
 @interface ToDoListTableViewController ()
 
@@ -54,7 +55,13 @@
  */
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    AddToDoItemViewController *source = [segue sourceViewController];
+    ToDoItem *item = source.toDoItem;
     
+    if (item != nil) {
+        [_toDoItems addObject:item];
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - Table View Data Source Protocol
