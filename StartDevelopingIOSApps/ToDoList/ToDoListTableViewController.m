@@ -69,7 +69,6 @@
     return [_toDoItems count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // cell below is prototype cell in Main.storyboard
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
@@ -78,14 +77,18 @@
     ToDoItem *toDoItem = [_toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = toDoItem.itemName;
     
-    NSLog(@"tableView:cellForRowAtIndexPath:");
+    if (toDoItem.completed) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
 
 #pragma mark - Table View Delegate
 
-- (void)tableView:(UITableView *)tableView didSElectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // NOTE: cell is selected by default
     // deselect cell immediately after selection
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
