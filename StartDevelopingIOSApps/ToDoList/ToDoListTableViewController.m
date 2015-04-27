@@ -27,7 +27,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    _toDoItems = [[NSMutableArray alloc] init];
+    self.toDoItems = [[NSMutableArray alloc] init];
     [self loadInitialData];
 }
 
@@ -38,11 +38,11 @@
 
 - (void)loadInitialData {
     ToDoItem *item1 = [[ToDoItem alloc] initWithItemName: @"Buy milk"];
-    [_toDoItems addObject: item1];
+    [self.toDoItems addObject: item1];
     ToDoItem *item2 = [[ToDoItem alloc] initWithItemName: @"Buy eggs"];
-    [_toDoItems addObject: item2];
+    [self.toDoItems addObject: item2];
     ToDoItem *item3 = [[ToDoItem alloc] initWithItemName: @"Read a book (haha)"];
-    [_toDoItems addObject: item3];
+    [self.toDoItems addObject: item3];
 }
 
 /**
@@ -59,7 +59,7 @@
     ToDoItem *item = source.toDoItem;
     
     if (item != nil) {
-        [_toDoItems addObject:item];
+        [self.toDoItems addObject:item];
         [self.tableView reloadData];
     }
 }
@@ -73,7 +73,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [_toDoItems count];
+    return [self.toDoItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -81,7 +81,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
     // query toDoItems by row index
-    ToDoItem *toDoItem = [_toDoItems objectAtIndex:indexPath.row];
+    ToDoItem *toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = toDoItem.itemName;
     
     if (toDoItem.completed) {
@@ -101,7 +101,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     // query ToDoItem via index
-    ToDoItem *tappedItem = [_toDoItems objectAtIndex:indexPath.row];
+    ToDoItem *tappedItem = [self.toDoItems objectAtIndex:indexPath.row];
     
     // toggle completion state
     tappedItem.completed = !tappedItem.completed;

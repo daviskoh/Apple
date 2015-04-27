@@ -37,10 +37,10 @@
     
     if (sender != self.saveButton) return;
     
-    if (_textField.text.length > 0) {
-        _toDoItem = [[ToDoItem alloc] init];
-        _toDoItem.itemName = _textField.text;
-        _toDoItem.completed = NO;
+    if (self.textField.text.length > 0) {
+        self.toDoItem = [[ToDoItem alloc] init];
+        self.toDoItem.itemName = self.textField.text;
+        self.toDoItem.completed = NO;
     }
 }
 
