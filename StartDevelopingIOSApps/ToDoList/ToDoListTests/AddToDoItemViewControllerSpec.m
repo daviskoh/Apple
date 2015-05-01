@@ -21,6 +21,7 @@
 
 @interface AddToDoItemViewControllerSpec : XCTestCase {
     AddToDoItemViewController *ctrl;
+    UIStoryboardSegue *dummySegue;
 }
 
 @end
@@ -31,6 +32,9 @@
     [super setUp];
     
     ctrl = [[AddToDoItemViewController alloc] init];
+    
+    dummySegue = [[UIStoryboardSegue alloc] init];
+    ctrl.saveButton = [[UIBarButtonItem alloc] init];
 }
 
 - (void)tearDown {
@@ -41,13 +45,10 @@
 #pragma mark - Test Navigation
 
 - (void)testSave {
-    UIStoryboardSegue *dummySegue = [[UIStoryboardSegue alloc] init];
-    
     NSString *toDoText = @"Milk a Cow";
     
     ctrl.textField = [[UITextField alloc] init];
     ctrl.textField.text = toDoText;
-    ctrl.saveButton = [[UIBarButtonItem alloc] init];
     
     [ctrl prepareForSegue:dummySegue sender:ctrl.saveButton];
     
