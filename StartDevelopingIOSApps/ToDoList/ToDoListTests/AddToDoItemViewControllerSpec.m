@@ -35,6 +35,8 @@
     
     dummySegue = [[UIStoryboardSegue alloc] init];
     ctrl.saveButton = [[UIBarButtonItem alloc] init];
+    
+    ctrl.textField = [[UITextField alloc] init];
 }
 
 - (void)tearDown {
@@ -47,7 +49,6 @@
 - (void)testSave {
     NSString *toDoText = @"Milk a Cow";
     
-    ctrl.textField = [[UITextField alloc] init];
     ctrl.textField.text = toDoText;
     
     [ctrl prepareForSegue:dummySegue sender:ctrl.saveButton];
@@ -58,7 +59,11 @@
 }
 
 - (void)testEmptyTextField {
+    ctrl.textField.text = @"";
     
+    [ctrl prepareForSegue:dummySegue sender:ctrl.saveButton];
+    
+    XCTAssertNil(ctrl.toDoItem);
 }
 
 - (void)testCancel {
