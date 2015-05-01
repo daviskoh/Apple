@@ -9,8 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "AddToDoItemViewController.h"
+#import "ToDoItem.h"
 
-@interface AddToDoItemViewControllerSpec : XCTestCase
+@interface AddToDoItemViewController (KOHOverridePropertiesForTesting)
+
+@property (strong, nonatomic) IBOutlet UITextField *textField;
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+
+@end
+
+@interface AddToDoItemViewControllerSpec : XCTestCase {
+    AddToDoItemViewController *ctrl;
+}
 
 @end
 
@@ -18,7 +29,8 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    ctrl = [[AddToDoItemViewController alloc] init];
 }
 
 - (void)tearDown {
@@ -29,6 +41,22 @@
 #pragma mark - Test Navigation
 
 - (void)testSave {
+    UIStoryboardSegue *dummySegue = [[UIStoryboardSegue alloc] init];
+    
+    NSString *toDoText = @"Milk a Cow";
+    
+    ctrl.textField = [[UITextField alloc] init];
+    ctrl.textField.text = toDoText;
+    ctrl.saveButton = [[UIBarButtonItem alloc] init];
+    
+    [ctrl prepareForSegue:dummySegue sender:ctrl.saveButton];
+    
+    XCTAssertTrue([ctrl.toDoItem isKindOfClass:[ToDoItem class]]);
+    XCTAssertEqualObjects(ctrl.toDoItem.itemName, toDoText);
+    XCTAssertFalse(ctrl.toDoItem.completed);
+}
+
+- (void)testEmptyTextField {
     
 }
 
