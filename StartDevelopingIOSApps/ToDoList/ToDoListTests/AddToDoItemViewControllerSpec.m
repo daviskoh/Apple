@@ -67,7 +67,11 @@
 }
 
 - (void)testCancel {
+    ctrl.textField.text = @"meowmix";
     
+    [ctrl prepareForSegue:dummySegue sender:nil];
+    
+    XCTAssertNil(ctrl.toDoItem);
 }
 
 @end
