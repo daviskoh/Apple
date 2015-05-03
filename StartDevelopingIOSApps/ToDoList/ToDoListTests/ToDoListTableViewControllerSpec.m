@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "TodoListTableViewController.h"
+#import "AddToDoItemViewController.h"
 
 @interface ToDoListTableViewControllerSpec : XCTestCase {
     ToDoListTableViewController *ctrl;
@@ -19,9 +20,12 @@
 // override loadInitialData for now... / consider using OCMock
 @interface ToDoListTableViewController (KOHMock)
 
-@property NSMutableArray *toDoItems;
+@property (readwrite) NSMutableArray *toDoItems;
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 
 @end
+
 
 @implementation ToDoListTableViewControllerSpec
 
@@ -35,7 +39,9 @@
     [super tearDown];
 }
 
-- (void)testViewDidLoad {
+#pragma mark - viewDidLoad
+
+- (void)testToDoItemsSetWhenViewLoads {
     // ctrl.toDoItems should be undefined
     XCTAssertNil(ctrl.toDoItems);
     
@@ -46,6 +52,28 @@
     XCTAssertTrue([ctrl.toDoItems isKindOfClass:[NSMutableArray class]]);
     
     // TODO: test whether loadInitialData has been called or not
+}
+
+#pragma mark - unwindToList
+
+- (void)testAddNewToDo {}
+
+- (void)testEmptyToDoItem {}
+
+#pragma mark - tableView:numberOfRowsInSection
+
+- (void)testNumberOfRowsPerSection {
+    NSInteger count;
+    
+    count = [ctrl tableView:[[UITableView alloc] init] numberOfRowsInSection:1];
+    XCTAssertEqual(count, 0);
+    
+    // add ToDo
+    ctrl.toDoItems = [[NSMutableArray alloc] init];
+    [ctrl.toDoItems addObject: [[ToDoItem alloc] init]];
+    
+    count = [ctrl tableView:[[UITableView alloc] init] numberOfRowsInSection:1];
+    XCTAssertEqual(count, 1);
 }
 
 @end
