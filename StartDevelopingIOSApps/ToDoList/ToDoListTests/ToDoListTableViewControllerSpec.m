@@ -23,6 +23,7 @@
 @property (readwrite) NSMutableArray *toDoItems;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -75,5 +76,11 @@
     count = [ctrl tableView:[[UITableView alloc] init] numberOfRowsInSection:1];
     XCTAssertEqual(count, 1);
 }
+
+#pragma mark - tableView:cellForRowAtIndex
+
+// Unit Testing Storyboard-linked functionality is difficult...
+
+#pragma mark - tableView:didSelectRowAtIndex
 
 @end
