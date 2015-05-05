@@ -27,6 +27,12 @@
 
 @end
 
+@interface UITableView (KOHMock)
+
+@property (readwrite) NSInteger row;
+
+@end
+
 
 @implementation ToDoListTableViewControllerSpec
 
@@ -82,5 +88,26 @@
 // Unit Testing Storyboard-linked functionality is difficult...
 
 #pragma mark - tableView:didSelectRowAtIndex
+
+- (void)testToggleCompletedState {
+    // instantiate deps
+    UITableView *tableView = [[UITableView alloc] init];
+    NSIndexPath *index = [NSIndexPath indexPathForItem:0 inSection:0];
+    
+    // init todos
+    ctrl.toDoItems = [[NSMutableArray alloc] init];
+    ToDoItem *todo = [[ToDoItem alloc] init];
+    [ctrl.toDoItems addObject: todo];
+    
+    // call method
+    [ctrl tableView:tableView didSelectRowAtIndexPath:index];
+    XCTAssertEqual(todo.completed, YES);
+    
+    [ctrl tableView:tableView didSelectRowAtIndexPath:index];
+    XCTAssertEqual(todo.completed, NO);
+    
+    [ctrl tableView:tableView didSelectRowAtIndexPath:index];
+    XCTAssertEqual(todo.completed, YES);
+}
 
 @end
