@@ -14,7 +14,6 @@
 @interface AddToDoItemViewController (KOHOverridePropertiesForTesting)
 
 @property (strong, nonatomic) IBOutlet UITextField *textField;
-
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 @end
